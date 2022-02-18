@@ -32,6 +32,16 @@ public class LinkedList
             _last = _last.Next;
         }
     }
+    public KeyValuePair PopFront()
+    {
+        if (_first == null)
+        {
+            return null;
+        }
+        var firstPair = _first.Pair;
+        _first = _first.Next;
+        return firstPair;
+    } 
     public void RemoveByKey(string key)
     {
         if (_first.Pair.Key == key)
