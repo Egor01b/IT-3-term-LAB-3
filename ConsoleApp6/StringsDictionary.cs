@@ -5,10 +5,26 @@ public class StringsDictionary
     private const int InitialSize = 10;
 
     private LinkedList[] _buckets = new LinkedList[InitialSize];
+    
+    private const double MaxLoad = 0.75;
+
+    public int GetCollisionCount()
+    {
+        var sum = 0;
+        for (int i = 0; i < _buckets.Length ; i++)
+        {
+            if (_buckets[i] != null && _buckets[i].GetCount() > 1)
+            {
+                sum += _buckets[i].GetCount() - 1;
+            }
+        }
+        return sum;
+    }
+    
 
     public void Add(string key, string value)
     {
-        if (GetLoad() > 0.75)
+        if (GetLoad() > MaxLoad)
         {
             ExpandBuckets(_buckets.Length * 2);
         }

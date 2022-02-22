@@ -2,6 +2,7 @@ namespace Lab3_for_IT;
 
 public class LinkedList
 {
+
     private class LinkedListNode
     {
         public KeyValuePair Pair { get; }
@@ -15,9 +16,16 @@ public class LinkedList
         }
     }
 
+    private int Count = 0;
+
     private LinkedListNode _first;
 
     private LinkedListNode _last;
+
+    public int GetCount()
+    {
+        return Count;
+    }
 
     public void Add(KeyValuePair pair)
     {
@@ -31,6 +39,8 @@ public class LinkedList
             _last.Next = new LinkedListNode(pair);
             _last = _last.Next;
         }
+
+        Count++;
     }
     public KeyValuePair PopFront()
     {
@@ -40,6 +50,7 @@ public class LinkedList
         }
         var firstPair = _first.Pair;
         _first = _first.Next;
+        Count--;
         return firstPair;
     } 
     public void RemoveByKey(string key)
@@ -47,6 +58,7 @@ public class LinkedList
         if (_first.Pair.Key == key)
         {
             _first = _first.Next;
+            Count--;
             return;
         }
         var current = _first;
@@ -54,7 +66,8 @@ public class LinkedList
         {
             if(current.Next.Pair.Key == key)
             {
-                current.Next = current.Next.Next;
+                current.Next = current.Next.Next; 
+                Count--;
                 if (current.Next == null)
                 {
                     _last = current;
@@ -78,4 +91,9 @@ public class LinkedList
 
         return null;
     }
+
+    
+    
+    
 }
+ 

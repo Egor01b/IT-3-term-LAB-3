@@ -5,11 +5,10 @@ var lines = File.ReadAllLines("dictionary.txt");
 var dictionary = new StringsDictionary();
 foreach (var line in lines)
 {
-   var index = line.IndexOf(';');
-   dictionary.Add(line.Substring(0, index), line.Substring(index + 1));
-   
+    var index = line.IndexOf(';');
+    dictionary.Add(line.Substring(0, index), line.Substring(index + 1));
 }
 
 Console.WriteLine(dictionary.Get("ABACUS"));
 Console.WriteLine(dictionary.Get("ABADDON"));
-File.ReadAllLines("dictionary.txt");
+Console.WriteLine(dictionary.GetCollisionCount());
