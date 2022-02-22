@@ -12,3 +12,4 @@ foreach (var line in lines)
 Console.WriteLine(dictionary.Get("ABACUS"));
 Console.WriteLine(dictionary.Get("ABADDON"));
 Console.WriteLine(dictionary.GetCollisionCount());
+Console.WriteLine(dictionary.GetBucketCount());

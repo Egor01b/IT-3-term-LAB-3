@@ -8,6 +8,11 @@ public class StringsDictionary
     
     private const double MaxLoad = 0.75;
 
+    public int GetBucketCount()
+    {
+        return _buckets.Length;
+    }
+
     public int GetCollisionCount()
     {
         var sum = 0;
@@ -15,7 +20,7 @@ public class StringsDictionary
         {
             if (_buckets[i] != null && _buckets[i].GetCount() > 1)
             {
-                sum += _buckets[i].GetCount() - 1;
+                sum ++;
             }
         }
         return sum;
