@@ -72,7 +72,7 @@ public class StringsDictionary
             }
         }
 
-        return full / _buckets.Length;
+        return (float)full / _buckets.Length;
     }
 
     private void ExpandBuckets(int newCount)
